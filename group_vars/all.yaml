@@ -6,17 +6,17 @@ cli:
   host: "{{ ansible_host }}"
 
 logging:
-  server: 10.24.248.118
+  server: 10.22.0.99
 
 snmp: 
-  contact: DellNOC@dell.com
-  location: Dublin
-  community: d311n3t
+  contact: NOC@dell.com
+  location: homelab
+  community: public
 
 ntp:
-  server1: 143.166.226.32
-  server2: 143.166.255.32
+  server1: 140.0.0.88
+  server2: 144.0.9.8
 
 dns:
-  server1: 10.8.8.8
-  server2: 10.7.7.7
+  server1: 10.9.0.9
+  server2: 10.9.0.10
