@@ -1,0 +1,22 @@
+---
+
+cli:
+  username: admin 
+  password: admin 
+  host: "{{ ansible_host }}"
+
+logging:
+  server: 10.24.248.118
+
+snmp: 
+  contact: DellNOC@dell.com
+  location: Dublin
+  community: d311n3t
+
+ntp:
+  server1: 143.166.226.32
+  server2: 143.166.255.32
+
+dns:
+  server1: 10.8.8.8
+  server2: 10.7.7.7

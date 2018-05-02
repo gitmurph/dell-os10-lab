@@ -1,0 +1,14 @@
+---
+ - name: "Provisioning VLT configuration for dellos9"
+   dellos9_config:
+      src: dellos9_vlt.j2
+      provider: "{{ cli }}"
+#   notify: save config os9
+   when: ansible_net_os_name == "dellos9"
+
+ - name: "Provisioning VLT configuration for dellos10"
+   dellos10_config:
+      src: dellos10_vlt.j2
+      provider: "{{ cli }}"
+#   notify: save config os10
+   when: ansible_net_os_name == "dellos10"

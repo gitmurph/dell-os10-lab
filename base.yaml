@@ -1,0 +1,14 @@
+--- 
+
+
+- name: DEPLOY BASELINE CONFIG
+  hosts: datacenter
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+      - name: DEPLOY BASE CONFIG FROM JINJA TEMPLATE
+        dellos10_config:
+          src: "./templates/base.j2"
+          provider: "{{ cli }}"

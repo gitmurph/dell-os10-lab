@@ -1,0 +1,17 @@
+snmp-server community {{ snmp.community }} ro
+snmp-server contact {{ snmp.contact }}
+snmp-server location {{ snmp.location }}
+!
+clock timezone GMT 0 0
+!
+hostname {{ inventory_hostname }}
+!
+ip domain-list networks.dell.com 
+ip name-server {{ dns.server1 }} {{ dns.server2 }}
+!
+ntp server {{ ntp.server1 }} key 1 prefer
+ntp server {{ ntp.server2 }}
+!
+ip igmp snooping enable
+!
+logging server {{ logging.server }}

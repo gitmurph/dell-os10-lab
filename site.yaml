@@ -1,0 +1,39 @@
+---
+- hosts : spine-switches
+  connection : local
+  gather_facts : no
+
+
+  tasks :
+  - name : "Basic Configuration"
+    dellos10_config :
+     lines:
+        - hostname {{ inventory_hostname }}
+        - route-map leaf-spine permit 10
+        - match ip address leaf-spine
+     provider : "{{cli}}"
+
+  roles :
+     - Dell-Networking.dellos-interface
+     - Dell-Networking.dellos-prefix-list
+     - Dell-Networking.dellos-bgp
+
+- hosts : leaf-switches
+  connection : local
+  gather_facts : no
+
+  tasks :
+  - name : "Basic Configuration"
+    dellos10_config :
+     lines:
+        - hostname {{ inventory_hostname }}
+        - route-map leaf-spine permit 10
+        - match ip address leaf-spine
+     provider : "{{cli}}"
+  roles :
+     - Dell-Networking.dellos-lag
+     - Dell-Networking.dellos-interface
+     - Dell-Networking.dellos-vlt
+     - Dell-Networking.dellos-prefix-list
+     - Dell-Networking.dellos-bgp
+     - Dell-Networking.dellos-ecmp
